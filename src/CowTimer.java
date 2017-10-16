@@ -11,7 +11,7 @@ public class CowTimer {
 
 	public static void main(String[] args) throws InterruptedException {
 		/* 1. Make a CowTimer, set the time and start it. */
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 			String time = JOptionPane.showInputDialog("How many more minutes intill the Cow will Moo?");
 			int timetime = Integer.parseInt(time);
 			CowTimer c = new CowTimer();
