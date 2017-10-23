@@ -2,6 +2,7 @@
 /BakingCookies.class
 /BookOfIllusions.class
 /ButtonListener.class
+/ButtonListener2.class
 /ButtonPractice.class
 /Cat.class
 /CatRunner.class
@@ -24,6 +25,9 @@
 /Left.png
 /MOO.wav
 /MixingBowl.class
+/Movie.class
+/NetflixQueue.class
+/NetflixRunner.class
 /NewCat.class
 /NewCatRunner.class
 /Oven.class
@@ -45,8 +49,3 @@
 /Up.png
 /Werid.jpg
 /Werid2.jpg
-/ButtonListener2.class
-/MovieQueue.class
-/NetflixRunner.class
-/Movie.class
-/NetflixQueue.class
