@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +17,8 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
 public class GetLastestTweet implements ActionListener {
+	JTextField tf = new JTextField(15);
+	JTextPane tp = new JTextPane();
 	public static void main(String[] args) {
 		new GetLastestTweet();
 	}
@@ -24,10 +27,10 @@ public class GetLastestTweet implements ActionListener {
 		JFrame f = new JFrame();
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
-		JTextField tf = new JTextField(15);
+	
 		JButton b = new JButton();
-		JTextPane tp = new JTextPane();
-		tp.setPreferredSize(new Dimension(400, 400));
+		
+		tp.setPreferredSize(new Dimension(800, 800));
 		f.add(p1, BorderLayout.NORTH);
 		f.add(p2, BorderLayout.SOUTH);
 		p1.add(tf);
@@ -35,6 +38,11 @@ public class GetLastestTweet implements ActionListener {
 		p2.add(tp);
 		f.setVisible(true);
 		b.setText("SEARCH");
+		tp.setBackground(new Color(0,171,221));
+		p1.setBackground(new Color(85,221,0));
+		p2.setBackground(new Color(85,221,0));
+		b.setBackground(Color.BLUE);
+		tp.setEditable(false);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.pack();
 		b.addActionListener(this);
@@ -62,17 +70,23 @@ public class GetLastestTweet implements ActionListener {
 		Query query = new Query(searchingFor);
 		try {
 			QueryResult result = twitter.search(query);
-			return result.getTweets().get(0).getText();
+			String s=" ";
+			for (int i = 0; i <result.getCount(); i++) {
+			s+= result.getTweets().get(i).getText() + "\n";
+			
+			}
+			return s;
 		} catch (Exception e) {
 			System.err.print(e.getMessage());
-			return "What the heck is that?";
+			return "error";
 		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("TWEET TWEET");	
-	String tw = getTweet(tf.setText())
+	String tw = getLatestTweet(tf.getText());
+tp.setText(tw);
 	}
 
 }
