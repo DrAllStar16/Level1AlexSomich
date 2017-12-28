@@ -21,8 +21,12 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
 public class Jukebox implements Runnable, MouseListener {
-Song natire= new Song("NATIRE.mp3");
-Song clos= new Song("CLOS.mp3");
+Song snatire= new Song("NATIRE.mp3");
+Song sclos= new Song("CLOS.mp3");
+JFrame f = new JFrame();
+JPanel p = new JPanel();
+JPanel clos = new JPanel();
+JPanel natire = new JPanel();
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
 		
@@ -43,10 +47,7 @@ Song clos= new Song("CLOS.mp3");
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
-        	   JFrame f = new JFrame();
-        	   JPanel p = new JPanel();
-		JPanel clos = new JPanel();
-		JPanel natire = new JPanel();
+    
 clos.add(loadImage("CLOSpic.png"));
 natire.add(loadImage("NatirePic.jpg"));
 		p.add(clos);
@@ -54,8 +55,10 @@ natire.add(loadImage("NatirePic.jpg"));
 		f.add(p);
 		f.setVisible(true);
 		f.pack();
+		//f.addMouseListener(this);
 		clos.addMouseListener(this);
 		natire.addMouseListener(this);
+		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
 		
           }
 	/* Use this method to add album covers to your Panel. */
@@ -74,16 +77,21 @@ natire.add(loadImage("NatirePic.jpg"));
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource()==clos) {
-			clos.play();
+		System.out.println("hi");
+		
+		if (e.getComponent ()==clos) {
+			sclos.play();
+			snatire.stop();
 		}
-		else if (e.getSource()==natire) {
-			natire.play();
+		else if (e.getComponent()==natire) {
+			snatire.play();
+			sclos.stop();
+		
 			
 		}
 		else {
-			clos.stop();
-			natire.stop();
+			sclos.stop();
+			snatire.stop();
 		}
 			}
 
