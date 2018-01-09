@@ -146,7 +146,7 @@ class Song {
 	}
 
 	public void setDuration(int seconds) {
-		this.duration = seconds * 100;
+		this.duration = seconds * 10;
 	}
 
 	public void stop() {
