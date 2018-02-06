@@ -12,7 +12,10 @@ public class NbaScoreboard {
 	JLabel ascore = new JLabel();
 	JLabel htimeouts = new JLabel();
 	JLabel atimeouts = new JLabel();
-
+	int awayscore = 0;
+	int homescore = 0;
+	int awaytimeouts = 3;
+	int hometimeouts = 3;
 	public NbaScoreboard() {
 
 		JFrame f = new JFrame();
@@ -34,7 +37,7 @@ public class NbaScoreboard {
 		JPanel patimeouts = new JPanel();
 		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setSize(150, 100);
+		f.setSize(175, 100);
 		f.setLayout(new BorderLayout());
 		team1.setLayout(new BorderLayout());
 		team2.setLayout(new BorderLayout());
@@ -77,10 +80,10 @@ public class NbaScoreboard {
 		
 		home.setText("HOME");
 		away.setText("AWAY");
-		hscore.setText("0");
-		ascore.setText("0");
-		htimeouts.setText("3");
-		atimeouts.setText("3");
+		hscore.setText("Score: " +homescore);
+		ascore.setText("Score: "+awayscore);
+		htimeouts.setText("TimeOut: "+ hometimeouts);
+		atimeouts.setText("TimeOut: "+ awaytimeouts);
 		f.setVisible(true);
 		//f.pack();
 
