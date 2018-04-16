@@ -7,35 +7,44 @@ import javax.swing.JButton;
 public class ColorButton {
 	Random r = new Random();
 	Color c;
+	String color;
 
+	private Color getRandomColor() {
+		int ran = r.nextInt(4);
+		if (ran == 0) {
+			color = "Blue";
+			return Color.BLUE;
+		}
 
+		else if (ran == 1) {
+			color = "Green";
+			return Color.GREEN;
+		}
 
-private Color getRandomColor(){
-	int ran = r.nextInt(4);
-	if (ran==0) {
-		return Color.BLUE;
+		else if (ran == 2) {
+			color = "Orange";
+			return Color.ORANGE;
+		}
+
+		else {
+			color = "Red";
+			return Color.RED;
+		}
 	}
-	
-	else if (ran==1) {
-		return Color.GREEN;
+
+	public JButton getNewButton() {
+
+		JButton b = new JButton();
+		Color c = getRandomColor();
+		b.setBackground(c);
+		b.setOpaque(true);
+		b.setPreferredSize(new Dimension(100, 100));
+		return b;
+
 	}
-	
-	else if (ran==2) {
-		return Color.ORANGE;
+
+	public String getButtonColor() {
+
+		return color;
 	}
-	
-	else {
-		return Color.RED;
-	}
-}
-public JButton getNewButton() {
-	
-	JButton b = new JButton();
-	Color c= getRandomColor();
-	b.setBackground(c);
-	b.setOpaque(true);
-	b.setPreferredSize(new Dimension(100,100));
-	return b;
-	
-}
 }
