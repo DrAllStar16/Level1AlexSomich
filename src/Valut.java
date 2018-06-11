@@ -1,4 +1,4 @@
-import java.util.Random;
+ import java.util.Random;
 
 public class Valut {
 	int z;
@@ -15,7 +15,7 @@ Random r = new Random();
 			
 		}
 		else {
-			System.out.println("Wrong Number");
+			
 			return false;
 		}
 		

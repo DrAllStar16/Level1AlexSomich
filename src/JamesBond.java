@@ -4,17 +4,19 @@ public class JamesBond {
 
 	}
 
-	public int findCode(Valut v) {
+	public boolean findCode(Valut v) {
+		
 		for (int i = 0; i < 1000000; i++) {
-
+			
 			if (v.checkcode(i)) {
-				System.out.println("Your Number is" + i);
+				System.out.println("Your Number is " + i);
 
 			} else {
-      return false;
+			
 			}
 
-		}System.out.println("NOPE");
+		}
+		return false;
 	}
 
 }
